@@ -1,0 +1,15 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "GrpcService.Server";
+
+service TrafficLight {
+	rpc SendMessage (stream ClientToServerMessage) returns (stream ServerToClientMessage);
+}
+
+message ClientToServerMessage {
+	bool isextended = 1;
+}
+
+message ServerToClientMessage {
+	string trafficLightColor = 1;
+}
